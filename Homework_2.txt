@@ -134,7 +134,7 @@ $ find . -type f -iname "*tf*"
 ./tf_4.txt
 
  23. Найти строки в файлах где есть комбинация букв “sec” в текущей папке:
-$ grep sec tf_1.txt tf_2.txt tf_4.txt
+$ grep sec *
 tf_2.txt:the second 2
 tf_2.txt:the sec 3
 
