@@ -139,25 +139,25 @@ tf_2.txt:the second 2
 tf_2.txt:the sec 3
 
  24. Найти строки в файлах где есть комбинация букв “sec” в любом регистре в текущей папке:
-$ grep -i sec tf_1.txt tf_2.txt tf_4.txt
+$ grep -i sec *
 tf_2.txt:the second 2
 tf_2.txt:the sec 3
 tf_2.txt:the seConD 2
 
  25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке:
-$ grep -w sec tf_1.txt tf_2.txt tf_4.txt
+$ grep -w sec *
 tf_2.txt:the sec 3
 
  26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке:
-$ grep -i -w sec tf_1.txt tf_2.txt tf_4.txt
+$ grep -w -i sec *
 tf_2.txt:the sec 3
 
  27. Найти строки в файлах где есть комбинация букв “second” в текущей папке:
-$ grep second tf_1.txt tf_2.txt tf_4.txt
+$ grep second *
 tf_2.txt:the second 2
 
  28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке:
-$ grep -i second tf_1.txt tf_2.txt tf_4.txt
+$ grep -i second *
 tf_2.txt:the second 2
 tf_2.txt:the seConD 2
 
@@ -166,11 +166,7 @@ $ grep -r second
 tf_2.txt:the second 2
 
  30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке:
-$ find . -type f | xargs grep second
-./tf_2.txt:the second 2
-OR:
-$ find . -type f -exec grep second {} +
-./tf_2.txt:the second 2
+$ grep -l second *
 
  31. Найти все строки во всех файлах где нет комбинации “second”:
 $ grep -r -v second .
@@ -240,6 +236,8 @@ $ find . -type f -exec grep -L second {} +
 ./dir_1/inner_dir_1/tf_5.txt
 ./dir_1/tf_1.txt
 ./dir_1/tf_4.txt
+OR:
+$ find . -type f | xargs grep -L second
 
  33. Вывести в терминал 4 последних строк любого текстового файла:
 $ tail -n 4 tf_2.txt
@@ -265,7 +263,7 @@ $ grep -rlw sec | xargs mv -t inner_dir_1
 $ grep -rlw sec | xargs cp -t folder
 
  38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл:
-$ grep -r sec . > sec.txt
+$ grep -r sec > sec.txt
 grep: input file ‘./sec.txt’ is also the output
 
  39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”:
