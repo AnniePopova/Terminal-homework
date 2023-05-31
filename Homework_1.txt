@@ -57,8 +57,7 @@ $ find -name 1.txt
 ./1.txt
 
 #Watch content in real time:
-$ cat 1.txt
-Hello! This is a test file.
+$ tail -f 3.txt
 
 #Watch several first lines of the file:
 $ head -n5 1.txt
