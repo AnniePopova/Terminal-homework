@@ -166,7 +166,7 @@ $ grep -r second
 tf_2.txt:the second 2
 
  30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке:
-$ grep -l second *
+$ grep -L second * | xargs realpath
 
  31. Найти все строки во всех файлах где нет комбинации “second”:
 $ grep -r -v second .
@@ -237,7 +237,7 @@ $ find . -type f -exec grep -L second {} +
 ./dir_1/tf_1.txt
 ./dir_1/tf_4.txt
 OR:
-$ find . -type f | xargs grep -L second
+$ find . -type f | xargs grep -L -v second
 
  33. Вывести в терминал 4 последних строк любого текстового файла:
 $ tail -n 4 tf_2.txt
@@ -264,7 +264,7 @@ $ grep -rlw sec | xargs cp -t folder
 
  38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл:
 $ grep -r sec > sec.txt
-grep: input file ‘./sec.txt’ is also the output
+
 
  39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”:
 $ grep -rl sec . | xargs rm
