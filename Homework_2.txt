@@ -166,7 +166,7 @@ $ grep -r second
 tf_2.txt:the second 2
 
  30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке:
-$ find -type f | xargs grep -L second
+$ find -type f | xargs grep second
 
  31. Найти все строки во всех файлах где нет комбинации “second”:
 $ grep -r -v second .
@@ -230,7 +230,7 @@ $ find . -type f | xargs grep -v second
 ./tf_2.txt:the seConD 2
 
  32. Найти только название и путь к файлам где нет комбинации “second”:
-$ find . -type f | xargs grep -LvR second
+$ find . -type f | xargs grep -L second
 
  33. Вывести в терминал 4 последних строк любого текстового файла:
 $ tail -n 4 tf_2.txt
